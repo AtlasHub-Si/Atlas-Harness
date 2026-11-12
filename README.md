@@ -19,7 +19,7 @@ This repository is the **canonical architecture and integration contract**, not 
 7. [AWS staging and startup credits research](docs/aws-staging-credits.md)
 8. [Public vs internal information policy](docs/security-publication.md)
 
-**Phase 01 tracking:** [Team acknowledgment](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1) · [AWS and credits](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2) · [First end-to-end pilot](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/3).\n\n**Operational clarification (12 Nov 2026):** The existing AtlasHub VPS is classified by the project owner as a non-production laboratory and may be reorganized after inventory and backups. Public briefing documents have **not yet been distributed to team members**; the team is not considered notified.\n\n## Platform map
+**LAB strategy and decision:** [ADR-0003](docs/adr/0003-lab-consolidation-aws-gwd-rollout.md) · [VPS audit + AWS decision issue](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/9).\n\n**Phase 01 tracking:** [Team acknowledgment](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1) · [AWS and credits](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2) · [First end-to-end pilot](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/3).\n\n**Operational clarification (12 Nov 2026):** The existing AtlasHub VPS is classified by the project owner as a non-production laboratory and may be reorganized after inventory and backups. Public briefing documents have **not yet been distributed to team members**; the team is not considered notified.\n\n## Platform map
 
 | Atlas project | Responsibility | Origin |
 | --- | --- | --- |
