@@ -10,16 +10,16 @@ This repository is the **canonical architecture and integration contract**, not 
 
 ## Start here
 
-1. [Official strategic decision (ADR-0001)](docs/adr/0001-atlas-harness-architecture.md)
+1. [Official strategic decision (ADR-0001)](docs/adr/0001-atlas-harness-architecture.md) · [ADR-0003: laboratory consolidation](docs/adr/0003-lab-consolidation-aws-gwd-rollout.md)
 2. [Architecture, boundaries and single authority model](docs/architecture.md)
 3. [Repository map, source of truth and migration](docs/repository-map.md)
 4. [Memory domains and operational knowledge](docs/memory-knowledge.md)
 5. [Team directive and responsibilities](docs/team-directive-2026-11-12.md) — [Role-by-role distribution briefings](docs/briefings-role-by-role.md)
-6. [Phase 01 plan and acceptance gates](docs/phase-01-roadmap.md)
+6. [Phase 01 plan and acceptance gates](docs/phase-01-roadmap.md) · [VPS lab read-only onboarding checklist](docs/lab-onboarding-readiness.md)
 7. [AWS staging and startup credits research](docs/aws-staging-credits.md)
 8. [Public vs internal information policy](docs/security-publication.md)
 
-**Phase 01 tracking:** [Team acknowledgment](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1) · [AWS and credits](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2) · [First end-to-end pilot](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/3).\n\n## Platform map
+**Phase 01 tracking:** [Team acknowledgment](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1) · [AWS and credits](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2) · [First end-to-end pilot](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/3).\n\n**Operational clarification (12 Nov 2026):** The existing AtlasHub VPS is classified by the project owner as a non-production laboratory and may be reorganized after inventory and backups. Public briefing documents have **not yet been distributed to team members**; the team is not considered notified.\n\n## Platform map
 
 | Atlas project | Responsibility | Origin |
 | --- | --- | --- |
