@@ -4,7 +4,7 @@
 
 ## Startup funding priority
 
-The proposed first environment is AWS because the business reports an incubator relationship. **Do not assume any credit is active or transferable.**
+**Updated hosting sequence:** first rehearse Atlas-Harness onboarding in the existing AtlasHub LAB after inventory and preservation; treat AWS as preferred candidate for a clean GWD reference deployment. The business reports an incubator relationship. **Do not assume any credit is active or transferable.** See [ADR-0003](adr/0003-lab-consolidation-aws-gwd-rollout.md).
 
 | Program | Opportunity | Mandatory verification | Official source |
 | --- | --- | --- | --- |
