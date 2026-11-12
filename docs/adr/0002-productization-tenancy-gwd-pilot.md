@@ -53,7 +53,7 @@ Separate platform subscription, infrastructure charges, provider LLM consumption
 
 ## First GWD tenant migration: no big bang
 
-Existing GWD/Hermes deployments remain operational and isolated. No change to Helena's current AtlasHub VPS until explicit migration GO. New AWS staging is separate.
+The project owner clarified that existing GWD/Hermes and AtlasHub VPS workloads are predominantly non-production experiments. They may be reorganized after a read-only inventory, recoverable backups, service classification and explicit GO. AtlasHub LAB may host a full core onboarding rehearsal; AWS is the preferred GWD reference target if credits and security gates pass. See [ADR-0003](0003-lab-consolidation-aws-gwd-rollout.md).
 
 ### Stage A — Inventory (read-only)
 
