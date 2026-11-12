@@ -14,12 +14,12 @@ This repository is the **canonical architecture and integration contract**, not 
 2. [Architecture, boundaries and single authority model](docs/architecture.md)
 3. [Repository map, source of truth and migration](docs/repository-map.md)
 4. [Memory domains and operational knowledge](docs/memory-knowledge.md)
-5. [Team directive and responsibilities](docs/team-directive-2026-11-12.md)
+5. [Team directive and responsibilities](docs/team-directive-2026-11-12.md) — [Role-by-role distribution briefings](docs/briefings-role-by-role.md)
 6. [Phase 01 plan and acceptance gates](docs/phase-01-roadmap.md)
 7. [AWS staging and startup credits research](docs/aws-staging-credits.md)
 8. [Public vs internal information policy](docs/security-publication.md)
 
-## Platform map
+**Phase 01 tracking:** [Team acknowledgment](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1) · [AWS and credits](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2) · [First end-to-end pilot](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/3).\n\n## Platform map
 
 | Atlas project | Responsibility | Origin |
 | --- | --- | --- |
