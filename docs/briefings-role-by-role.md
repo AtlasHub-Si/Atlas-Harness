@@ -1,6 +1,6 @@
 # Briefings para distribuição por função — Atlas-Harness v0.1
 
-**Data:** 12/11/2026 | **Estado:** material de alinhamento, sem autorização de deploy.
+**Data:** 12/11/2026 | **Estado:** material de alinhamento **ainda não distribuído**, sem autorização de deploy.\n\n**ADDENDUM:** a VPS atual é laboratório e pode ser reorganizada após inventário, backups e GO específico; consultar [ADR-0003](adr/0003-lab-consolidation-aws-gwd-rollout.md).
 **Diretiva principal:** https://github.com/sergiomonteiro-atlas/Atlas-Harness/blob/main/docs/team-directive-2026-11-12.md
 **Confirmações:** https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1
 
@@ -16,7 +16,7 @@ Foi aprovada como orientação de arquitetura a construção do Atlas-Harness: p
 
 **Assunto: Preparação AWS / Atlas-Harness, inventário sem alterações**
 
-A nova arquitetura Atlas-Harness está validada para desenvolvimento. A infraestrutura deve ser construída numa **nova instalação AWS isolada**, preservando o ambiente AtlasHub atual. Prioridade: verificar o programa incubador/AWS Activate e créditos efetivamente atribuídos, custos estimados, permissões/IAM, backup, redes e monitorização; criar plano de staging e respetivos GO gates. Não executar provisionamento, migração, DNS ou alterações de VPS sem autorização específica. Documentar bloqueios em https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2, mantendo dados de billing/credenciais fora do GitHub público.
+A nova arquitetura Atlas-Harness está validada para desenvolvimento. A VPS AtlasHub existente poderá funcionar como **LAB de onboarding**, depois de auditoria de capacidade e preservação das configurações LearnHouse/CRM/ARO/Helena. A AWS é candidata à **instalação GWD de referência** se os créditos e custos forem validados. Prioridade: verificar o programa incubador/AWS Activate e créditos efetivamente atribuídos, custos estimados, permissões/IAM, backup, redes e monitorização; criar plano de staging e respetivos GO gates. Não parar serviços, apagar volumes, alterar DNS nem provisionar recursos com custo sem autorização específica. Documentar bloqueios em https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2, mantendo dados de billing/credenciais fora do GitHub público.
 
 ## 3. Engenharia — Atlas-Bot
 
