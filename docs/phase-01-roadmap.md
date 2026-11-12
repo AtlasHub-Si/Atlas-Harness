@@ -12,7 +12,7 @@
 
 **Exit:** all role owners recorded, disputes and limitations visible in issues. Publishing a directive is not equivalent to receipt by people.
 
-## 01B. Infrastructure and funding readiness
+## 01B. Existing lab consolidation and infrastructure/funding readiness\n\nOwner clarification: AtlasHub VPS is a laboratory, not a protected production environment. Its test services may be paused after a classified inventory, recoverable backups and explicit change GO; protect LearnHouse, CRM, ARO and Helena/Hermes artifacts. Read [ADR-0003](adr/0003-lab-consolidation-aws-gwd-rollout.md) and the [read-only inventory checklist](lab-onboarding-readiness.md).\n\n- [ ] Inventory AtlasHub host, Docker stacks, memory/swap, disk, ingress ownership, volumes, backups and dependencies.\n- [ ] Define PRESERVE / ISOLATE / STOP_AFTER_BACKUP / ARCHIVE classification and verify recovery.\n- [ ] Prepare isolated Atlas-LAB onboarding environment and three-role pilot.
 
 - [ ] Identify AWS account owner, Activate/Incubator affiliation, Org ID availability (do not publish), billing currency, current credit approval/balance/expiry.
 - [ ] Budget, alert thresholds, AWS IAM/SSO/MFA, region and expected traffic defined.
@@ -33,7 +33,7 @@
 
 **Exit:** automated contract validation, no default broad allow rule, CI and basic security tests.
 
-## 01D. First vertical slice
+## 01D. First vertical slice and repeatable onboarding\n\n- [ ] Onboard two fictional organizations from versioned configuration without source code edits.\n- [ ] Demonstrate environment and memory isolation and clean teardown/restore.\n\n
 
 1. Director in Atlas-Bot requests a bounded analysis of an approved fictional product FAQ.
 2. Task passes RBAC/ABAC, budget and permission decisions and enters a durable queue.
