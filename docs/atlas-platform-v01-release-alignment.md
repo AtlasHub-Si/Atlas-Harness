@@ -4,7 +4,7 @@
 
 1. **Brand hierarchy:** Atlas SI (site, umbrella), Atlas Harness (architecture), AtlasBot Desktop (multiagent interface candidate), Atlas-Agent (Hermes agent runtime), Atlas Memory Fabric (GBrain), Atlas Operational Knowledge (Obsidian-compatible Markdown), Workforce (roles), WorkSwarms (experimental), CRM-OS (business application).
 2. **Public promise:** an early-access architectural preview and verified development progress—not an already available commercial or open-source Desktop installer.
-3. **Source import:** Product GitHub repo `AtlasHub-Si/Atlas-Bot-Desktop` existed but was empty at initial launch verification; local 213 MiB push failed HTTP 408. Never mark import complete without inspecting `refs/heads/main`.
+3. **Source import:** The Atlas-Bot-Desktop repository was populated successfully through a GitHub fork of SergioMonteiro-Atlas; a separate source rights and installer release gate remains.
 4. **Rights:** `nightly-labs/openbot` current source PolyForm Noncommercial. Neither a renamed repository nor a clean URL grants commercial redistribution or operating rights. Separate licence negotiation from independently implementable Atlas components.
 5. **Operations:** preserve Helena perimeter (four legacy agents Helena/Diana/Elisa/Maia, GWD Cockpit, LearnHouse/ClubOS, ARO, Deskcom CRM, media/webplayer) while isolating new AtlasBot + new Hermes with separate mounts/networks/permissions.
 6. **AWS:** Antigravity leads account/Activate and architecture track. No paid resources or DNS production changes before account, approved budget and security architecture.
@@ -14,8 +14,8 @@
 
 | Gate | Owner | Evidence |
 | --- | --- | --- |
-| Vercel preview and production READY | Web lead | PR #1 merged; current deploy ID and HTTPS smoke |
-| Public download gate avoids upstream binary | Web lead | /download/{platform} returns not_released |
+| Public website controlled by Z.AI / GLM 5.3 | Z.AI | GPT website changes reverted in PR #3 |
+| Installer licensing and public download gate | Z.AI + legal | Check actual downloads before any Atlas-branded release |
 | Product repository complete | Engineering | GitHub main SHA, licence and NOTICE verified |
 | AtlasBot Windows to VPS | OpenBot Local, Helena validates dependencies | Two agents delegate; restart preserves state; Hermes ACP |
 | No regression in legacy protected agents | Helena | Health and Telegram/Discord tests for each configured agent |
@@ -31,6 +31,6 @@ Upstream releases are monitored periodically. They are not directly shipped. Eac
 
 - [Launch #14](https://github.com/AtlasHub-Si/Atlas-Harness/issues/14)
 - [VPS #13](https://github.com/AtlasHub-Si/Atlas-Harness/issues/13)
-- [Site PR #1](https://github.com/AtlasHub-Si/atlas-si-website/pull/1)
+- [Site restoration PR #3](https://github.com/AtlasHub-Si/atlas-si-website/pull/3)
 - [AWS readiness](aws-staging-credits.md)
 - [Security](security-publication.md)
