@@ -42,4 +42,4 @@ Initial pilot: no live WhatsApp or personal customer data.
 4. Preserve source, hash/version and approval identity in evidence.
 5. Ensure confidential HR and customer records never reach public code or LLM tools without explicit scoped authorization and appropriate data controls.
 
-See [ADR-0001](adr/0001-atlas-harness-architecture.md) and [Atlas-Operational-Knowledge](https://github.com/sergiomonteiro-atlas/Atlas-Operational-Knowledge).
+See [ADR-0001](adr/0001-atlas-harness-architecture.md) and [Atlas-Operational-Knowledge](https://github.com/AtlasHub-Si/Atlas-Operational-Knowledge).

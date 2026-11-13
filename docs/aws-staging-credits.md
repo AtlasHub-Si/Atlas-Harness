@@ -17,9 +17,9 @@ Do not present maximum advertised credit amounts as Atlas approved funding. Reco
 
 ## AWS architecture hypothesis
 
-One new AWS EC2 staging node is sufficient to begin a controlled bounded test. **Initial hypothesis**, not sizing approval: 4 vCPU, 16 GiB RAM, ~80 GiB encrypted storage; Ubuntu LTS, Docker Compose, Postgres, Caddy/TLS, private Redis if required, S3 backups, monitoring. Reassess after benchmarking the actual OpenBot/Intelligence and Hermes profiles. Cloud-native IAM, security group, network, VPC and snapshots may be required; they also incur costs.
+One new AWS EC2 staging node is sufficient to begin a controlled bounded test. **Initial hypothesis**, not sizing approval: 4 vCPU, 16 GiB RAM, ~80 GiB encrypted storage; Ubuntu LTS, Docker Compose, Postgres, Caddy/TLS, private Redis if required, S3 backups, monitoring. Reassess after benchmarking the Electron OpenBot remote host (separate from CopilotKit/OpenBot), Hermes ACP and agent browser profiles. Cloud-native IAM, security group, network, VPC and snapshots may be required; they also incur costs.
 
-Do **not** install all forks as production services together on day 1. OpenBot has a separately licensed Intelligence dependency and may require more capacity than the initial node. Ruflo, CRM and multiple browser-computer containers are excluded from Phase 01 runtime.
+Do **not** install all forks as production services together on day 1. The Electron OpenBot candidate does not require CopilotKit Intelligence. It does require a separate licence review (current upstream PolyForm Noncommercial) before any business use or redistribution. Remote access may additionally require Account API, Signal and TURN; do not provision or bill services before rights and budget approval. Ruflo, CRM and multiple browser-computer containers are excluded from Phase 01 runtime.
 
 ### Required governance before provisioning
 
