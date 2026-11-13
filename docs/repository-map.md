@@ -1,37 +1,42 @@
-# Repository map and ownership v0.1
+# Atlas ecosystem — source-of-truth and repository ownership (2026-11-13)
 
-## Canonical Atlas family
+This document supersedes the November 12 repository map where it treats `CopilotKit/OpenBot` as the only interface or assumes its Intelligence dependency is required for the Electron branch.
 
-| Repository | Class | Origin / state | Change policy |
+## GitHub organization and provenance
+
+| Canonical repo (all under `AtlasHub-Si/`) | Category | Source | Approved usage |
 | --- | --- | --- | --- |
-| `Atlas-Harness` | Public architecture, policy/contracts | New original Atlas repo | PR + ADR for breaking decisions |
-| `Atlas-Bot` | User-facing enterprise control plane | Fork of `CopilotKit/OpenBot` | Preserve upstream and licensing |
-| `Atlas-Agent` | Bounded execution runtime | Fork of `NousResearch/hermes-agent` | Maintain upstream patch review |
-| `Atlas-Memory-Fabric` | Scoped knowledge and memory adapter | Fork of `garrytan/gbrain`, default `master` | Verify access boundaries before multi-tenant use |
-| `Atlas-Operational-Knowledge` | Controlled knowledge authorship | New original Atlas repo | Publish only fictional/public records |
-| `Atlas-Workforce` | Specialist role catalog | Fork of `msitarzewski/agency-agents` | Avoid confusing role definitions with permissions |
-| `Atlas-WorkSwarms` | Experimental coordination | Fork of `ruvnet/ruflo` | Lab only, separate deployments |
-| `Atlas-Crm-OS` | Replaceable BU Sales OS | Fork of `melgarafael/DeskcommCRM` | BU integration and privacy review |
+| `Atlas-Harness` | Original governing architecture | AtlasHub original | Public architecture V0.1 |
+| `Atlas-Bot-Desktop` | Candidate Desktop + remote host | Independent Git copy planned from `sergiomonteiro-atlas/Atlas-Bot-Desktop`, a fork of `nightly-labs/openbot` | Reference/evaluation; PolyForm Noncommercial; import still pending |
+| `Atlas-Bot` | Parallel enterprise UI/control plane R&D | Fork `CopilotKit/OpenBot` (Tauri + React) | Research, NOT Electron source |
+| `Atlas-Agent` | Hermes via ACP | Fork `NousResearch/hermes-agent` | Agent runtime; validate API/secret isolation |
+| `Atlas-Memory-Fabric` | GBrain / knowledge graph adapters | Fork `garrytan/gbrain` | Research behind tenant access controls |
+| `Atlas-Operational-Knowledge` | Approved Markdown vault | Atlas original; Obsidian editor optional | Public synthetic playbooks only |
+| `Atlas-Workforce` | SOUL / skill roles | Fork `msitarzewski/agency-agents` | Templates do not convey permissions |
+| `Atlas-WorkSwarms` | Swarm federation | Fork `ruvnet/ruflo` | Experimental isolated lab |
+| `Atlas-Crm-OS` | CRM BU candidate | Fork `melgarafael/DeskcommCRM` | Isolated BU system, not Harness dependency |
+| `atlas-si-website` | Public website | Atlas Next.js app; original V0.1 home, inherited content pending audit | Early access, no installer |
 
-## Retained legacy / laboratory
+There are **two unrelated projects called OpenBot**. `nightly-labs/openbot` is the Electron client currently matching the operator's Windows desktop. `CopilotKit/OpenBot` is a different Tauri/React enterprise-oriented project. Merging their source histories or claiming their protocols are interchangeable is an architectural error.
 
-- `atlas-blueprint-legacy`: previous validated contracts and specifications; preserve before migration.
-- `atlas-agent-legacy`: original TypeScript bounded harness and reality auditor; study the critical architecture, do not misrepresent it as a Hermes fork.
-- `atlas-workforce-legacy`: previous Atlas templates, converters, Souls and starter Vault; selective migration.
-- `atlas-desktop`: exploratory UI/desktop; review before deciding to fork/replace later.
-- REA (`morluto/rea`) is an engineering research tool, not the core runtime.
-- `Atlas-Crm-OS`, Academy/AtlasClub (incl. `atlas-club-campus`), Atlas MAIC Lab, ARO and commercial BU sites are **operational applications**. Integrate through published APIs/events; do not bundle into the core harness.
+## Development lanes
 
-## Upstream and licensing
+1. **Reference fork** `sergiomonteiro-atlas/Atlas-Bot-Desktop`: sync upstream, no Atlas branding.
+2. **Product repository** `AtlasHub-Si/Atlas-Bot-Desktop`: freeze a reviewed upstream commit; build integration branches and PRs, not automatic updates. Must verify import succeeded before claiming code available.
+3. **Harness**: contracts, scope, evidence and governance. Separate from Desktop process internals.
+4. **Infrastructure**: existing VPS lab (Helena boundary preserved) and separately approved AWS staging, never a shared unconstrained Docker root.
 
-Retain GitHub fork relationships and original notices. Do not squash provenance into uncredited original Atlas code. For OpenBot verify separately licensed CopilotKit Intelligence as a gating requirement. Mark production independence as **unverified**.
+## Upstream sync
 
-## Version and release protocol
+Record exact upstream SHA and licence at each baseline. Git diff and tests first; targeted REA investigation only for difficult structural changes. Changes affecting SQLite migrations, ACP adapter, identity, user-profile persistence, remote Signal/TURN and Electron sandbox need isolated integration and rollback before merge. No upstream direct deployment to Atlas production.
 
-`Atlas-Harness` architecture follows `0.x` pre-alpha release cadence. Each integration contract must state version, compatibility matrix, owners, migration and test evidence. Avoid claiming that upstream versions deployed to the staging VPS match their GitHub tip until explicit pinning.
+## Licence rules
 
-## Links
+Each project retains source-level rights and attribution; **do not declare all Atlas repositories MIT**. The latest `nightly-labs/openbot` is PolyForm Noncommercial; the copy repository does not confer commercial distribution rights. Future Atlas Community edition must contain only code under licences allowing its distribution and usage; a separate Enterprise edition requires necessary permissions.
 
-- Architecture: [ADR-0001](adr/0001-atlas-harness-architecture.md).
-- Team directive: [12 Nov 2026](team-directive-2026-11-12.md).
-- Pilot milestone: [Phase 01](phase-01-roadmap.md).
+## Useful technical links
+
+- [Architecture](architecture.md) · [Memory](memory-knowledge.md)
+- [Atlas SI launch](atlas-platform-v01-release-alignment.md)
+- [Security and publication](security-publication.md)
+- [AWS staging](aws-staging-credits.md)

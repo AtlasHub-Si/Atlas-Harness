@@ -1,60 +1,69 @@
-# Reference architecture v0.1
+# Atlas Harness — Reference architecture V0.1 (13 November 2026)
 
-## Organization
+**Status:** architectural contract under integration. The current Desktop UX and cloud control plane are not a single deployed multi-tenant product.
 
-Five navigable corporate levels: (1) Governance/Council, (2) Executive Leadership, (3) Shared Services, (4) Business Units & Profit Centers, (5) Labs / Research / Innovation. A level represents authority and reporting, not a software container per manager.
-
-- The **human Council/owner** authorizes policy, budget and strategic priorities.
-- **Atlas-Bot** presents managers, executive dashboards, enterprise mission admission, approval queue and oversight.
-- An **Atlas control-plane contract** (implemented in Atlas-Bot backend or a future independently deployed service) is the single decision point for organization-wide mission routing and external-action authorization.
-- **Atlas-Agent** executes a bounded authorized mission, can call specialized skills and delegate nested tasks within its scope.
-- **Atlas-Workforce** contains canonical role slugs, competencies, identities and escalation chain.
-- **Atlas-Memory-Fabric** exposes access-controlled knowledge retrieval with provenance.
-- **Atlas-Operational-Knowledge** authors, reviews and versions playbooks, FAQs, product guides and scripts.
-- CRM/ERP/ARO/BU systems are authoritative for transactional entities, prices, balances, orders and customer state. Knowledge files may link to them but not replace them.
-
-## Control vs execution
+## User experience and execution
 
 ```mermaid
 flowchart TD
-  U[Council / directors / authorized staff] --> B[Atlas-Bot: Enterprise UX]
-  B --> C[Atlas Control API: single task admission and policy]
-  C --> Q[(Postgres task ledger + durable outbox)]
-  C --> E[Atlas-Agent: scoped mission executor]
-  E --> T[Controlled tool/API proxy]
-  T --> X[Allowed systems and endpoints]
-  E --> M[Atlas Memory Fabric: access-enforced retrieval]
-  K[Atlas Operational Knowledge: approved docs] --> M
-  R[(CRM / ERP source-of-truth)] --> T
-  E --> O[Evidence + events + result]
-  O --> C
-  C --> B
+ U[Human director / authorized user] --> B[AtlasBot Desktop / future Atlas Web]
+ B --> P[Atlas governance + policy adapter]
+ P --> Q[(Mission / evidence ledger - planned)]
+ P --> H[Atlas-Agent / Hermes through ACP]
+ H --> R[Approved role / skill set from Atlas-Workforce]
+ H --> M[Atlas Memory Fabric]
+ K[Atlas Operational Knowledge - Obsidian-compatible Markdown] --> M
+ P --> G[Scoped tool / business API gateway]
+ G --> CRM[CRM-OS / GWD / ARO / AtlasClub]
+ H --> E[Evidence / events]
+ E --> P
 ```
 
-No Hermes-internal tool bypass of the enterprise policy proxy. An autonomous nested subagent inherits the parent mission's scope. In phase 01, use a **read-only** tool surface.
+### Two distinct interface candidates
+- **Primary Desktop pilot:** Electron `nightly-labs/openbot` family (`Atlas-Bot-Desktop` planned), local-first persistent agents, SQLite, remote Linux host, ACP and provider adapters. The usual headless remote host does **not** expose a webpage for Caddy; access is from a suitable Desktop or Web client via Account API + Signal + TURN. Self-hosting the remote control plane is a separate project.
+- **Research option:** unrelated `CopilotKit/OpenBot` fork `Atlas-Bot` (Tauri / AG-UI / PostgreSQL / CopilotKit Intelligence design). Do not assume its APIs or data models can be transplanted directly to Electron.
 
-## Mission envelope v0 (design, not yet deployed)
+### Hermes and legacy continuity
+The configured **new Hermes / Atlas-Agent** instance and provider credentials must be preserved and attached to the canonical AtlasBot host using ACP only after verifying the runtime path, user context and security boundaries. The **legacy Hermes** remains in Helena's separate operational perimeter for Helena, Diana, Elisa and Maia, retaining necessary Telegram/Discord channels. Neither perimeter should mount the other's secret stores or workspaces.
 
-Every task MUST carry: `task_id`, `correlation_id`, `tenant_id`, `business_unit_id`, `department_id`, `requested_by`, `assignee_slug`, `purpose`, `data_scope`, `allowed_tools`, `approval_policy`, `cost_limit`, `deadline`, `idempotency_key`, `schema_version`.
+### Authority and control
+The Atlas governance adapter controls tenant/BU scope, who may delegate, available tools, data classification, budget, review and completion evidence. ACP is the Agent Client Protocol, not a complete authorization/control system. Nested agents inherit scopes. For tests, use fake data and read-only external access. A future durable task ledger may use PostgreSQL but **Supabase is not an automatic requirement for the initial Desktop pilot**.
 
-Typical lifecycle: `requested -> validated -> policy_checked -> queued -> running -> review_required|completed|failed|cancelled`. All external side effects are recorded with audit evidence. Replay must not duplicate CRM updates, messages or payments.
+## Five organizational levels
 
-## Policy and audit boundaries
+1. Governance and Council
+2. Executive Leadership
+3. Shared Services
+4. Business Units and Profit Centers
+5. Labs, Research and Innovation
 
-Authorize tools server-side using tenant/BU, actor, role, data classification, specific operation, temporal validity and approval. Log policy decision ID, execution ID, actor and sanitized evidence. No root Docker sockets, unscoped SSH or direct secrets passed into model prompts.
+These are authority layers, not dedicated containers per executive. Role definitions in Atlas Workforce are declarative; permissions are enforced elsewhere.
 
-## Pilot interface
+## Data domains
 
-Phase 01 validates one `read-only product FAQ review` requested by a department director, executed by one researcher agent, retrieving one approved fictional BU03 knowledge document, returning source citations and a critic/evidence result. Production channels and customers remain disconnected.
+- Strategic/board: separate access and retention.
+- Employee/private: HR/legal; never in public agent prompts without scoped authorization.
+- Approved operational knowledge: versioned Markdown, editorial approvals.
+- Business/customer transactions: CRM/ARO/ClubOS systems of record.
+- Agent episodic memory: runtime-local checkpoints with appropriate lifecycle.
 
-## Operational topology
+The GBrain fork provides potential graph/retrieval capabilities; access enforcement, provenance, revocation and cross-tenant isolation still require tests. Obsidian is an optional editor, **not a proprietary server dependency**.
 
-Use one isolated staging VPC/account where practical: ingress TLS, Atlas-Bot API, Atlas-Agent service, memory adapter, Postgres, optional Redis, background worker, audit store and monitoring. Containerization is not authorization. Confirm resource use, backups, recovery and blast radius before increasing scope.
+## Deployment topologies
 
-## Open architecture questions
+- **V0.1 site:** Next.js on Vercel, early access and roadmap; no downloadable Atlas binaries yet.
+- **Internal AtlasHub VPS:** single isolated AtlasBot host (candidate), new Hermes, persistent data, limits and separate network. Helena legacy/projects untouched.
+- **Atlas remote services:** Account API (existing upstream Cloudflare Workers + D1 + R2 design), Signal + coturn. Not required for strictly local agents; required by the current remote architecture for independent identity/connectivity. Build only when justified by pilot.
+- **AWS staging:** planned, not created. Separate identity/network/budget/backup boundary, approved account and forecast before charges.
+- **Community and Enterprise:** prospective product editions, gated on licensing and proven tenancy.
 
-- OpenBot Intelligence licensing / independence and compatibility.
-- Hermes AG-UI adapter or bridge semantics (no assumed direct compatibility).
-- Access enforcement and deletion/retention in gbrain.
-- Persistent job recovery, approval callback and cancellation semantics.
-- Multi-BU isolation at PostgreSQL and knowledge retrieval layers.
+## Initial acceptance test
+
+From the Windows desktop, select the AtlasHub VPS host, create two disposable agent profiles, have one delegate a read-only task to the other, restart the remote host and verify persistence. Then verify Hermes through `hermes acp`, preserving four legacy agents and all named standby projects. No production customer communications or financial actions.
+
+## Mandatory controls
+
+- Stable agent identity, organization scope, tools allowance, budget, idempotency and audit evidence.
+- No privileged Docker socket, unrestricted SSH, plaintext secrets in models or cross-tenant mounts.
+- Document migrations, backups and rollback before a DB/profile upgrade.
+- No public installer or commercial hosting of PolyForm-licensed upstream code until usage rights are established.

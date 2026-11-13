@@ -1,53 +1,83 @@
-# Atlas-Harness
+# Atlas Harness — Architecture for the AI-Native Enterprise
 
-**Open blueprint for governed AI-native enterprises.**
+**AtlasHub.SI · Intelligence for the Augmented Enterprise**  
+**Version:** V0.1 · Public architectural preview · 13 November 2026  
+**Website:** https://www.atlas-si.com · **Platform status:** integration in progress, **not** a publicly released commercial agent runtime.
 
-> Status: **pre-alpha architecture**, not a production-ready integrated platform. Version: `0.1.0`. Founded by AtlasHub. Updated 2026-11-12.
+The Atlas Harness is the governed architecture that links a multiagent workspace, bounded agent execution, organizational roles, shared memory, approved operational knowledge and transactional business applications. Its purpose is a coherent AI-native enterprise—not another disconnected chatbot collection.
 
-Atlas-Harness defines the enterprise architecture connecting a control plane, autonomous agent execution, organizational workforce, shared memory, operational knowledge, and auditable business operations. We treat AI agents as accountable roles in a real organization, not as a collection of disconnected chatbots.
+> **Important distinction:** Atlas Harness is our original architecture and integration contract; **AtlasBot Desktop** is the candidate multiagent interface/runtime under evaluation. A browser landing and a GitHub fork are not proof of a fully integrated product.
 
-This repository is the **canonical architecture and integration contract**, not a fork and not the complete runtime. Its component repositories retain their upstream history and licenses.
+## Current project map
 
-## Start here
+| Repository | Responsibility | Upstream / licensing caution | Delivery status |
+| --- | --- | --- | --- |
+| [Atlas-Harness](https://github.com/AtlasHub-Si/Atlas-Harness) | Original reference architecture, governance, orchestration contracts | Atlas original; own licensing decision pending | V0.1 public docs |
+| [Atlas-Bot-Desktop](https://github.com/AtlasHub-Si/Atlas-Bot-Desktop) | Desktop / remote multiagent interface **candidate** | Independent Git copy of `nightly-labs/openbot` planned; PolyForm Noncommercial constraints remain | Import in progress; no public Atlas installer |
+| [Atlas-Bot](https://github.com/AtlasHub-Si/Atlas-Bot) | Alternative enterprise control plane R&D | Fork of unrelated `CopilotKit/OpenBot`; separate software and licences | Research; not the canonical Desktop |
+| [Atlas-Agent](https://github.com/AtlasHub-Si/Atlas-Agent) | Hermes agent runtime, tools and skills; ACP integration | Fork of `NousResearch/hermes-agent`; preserve upstream notices | Local/VPS technical integration |
+| [Atlas-Memory-Fabric](https://github.com/AtlasHub-Si/Atlas-Memory-Fabric) | Governed memory, retrieval and provenance | Fork of GBrain; adapter authorization needed | Research |
+| [Atlas-Operational-Knowledge](https://github.com/AtlasHub-Si/Atlas-Operational-Knowledge) | Versioned Markdown playbooks and approvals; Obsidian-compatible authoring | Atlas original | Architecture |
+| [Atlas-Workforce](https://github.com/AtlasHub-Si/Atlas-Workforce) | Roles, SOULs, templates and skills catalog | Fork of `msitarzewski/agency-agents` | Catalog / integration |
+| [Atlas-WorkSwarms](https://github.com/AtlasHub-Si/Atlas-WorkSwarms) | Experimental federation and swarm orchestration | Fork of `ruvnet/ruflo` | Research only |
+| [Atlas-Crm-OS](https://github.com/AtlasHub-Si/Atlas-Crm-OS) | Business-unit CRM candidate derived from DeskcommCRM | Fork of `melgarafael/DeskcommCRM` | Separate BU application |
+| [atlas-si-website](https://github.com/AtlasHub-Si/atlas-si-website) | Atlas SI public landing, communications and release links | Website asset provenance under review | V0.1 public early-access site |
 
-1. [Official strategic decision (ADR-0001)](docs/adr/0001-atlas-harness-architecture.md) · [ADR-0003: laboratory consolidation](docs/adr/0003-lab-consolidation-aws-gwd-rollout.md)
-2. [Architecture, boundaries and single authority model](docs/architecture.md)
-3. [Repository map, source of truth and migration](docs/repository-map.md)
-4. [Memory domains and operational knowledge](docs/memory-knowledge.md)
-5. [Team directive and responsibilities](docs/team-directive-2026-11-12.md) — [Role-by-role distribution briefings](docs/briefings-role-by-role.md)
-6. [Phase 01 plan and acceptance gates](docs/phase-01-roadmap.md) · [VPS lab read-only onboarding checklist](docs/lab-onboarding-readiness.md)
-7. [AWS staging and startup credits research](docs/aws-staging-credits.md)
-8. [Public vs internal information policy](docs/security-publication.md)
+The existing GWD Cockpit, LearnHouse/ClubOS, ARO, Deskcom-derived CRM and webplayer are **standby or operational applications**, not expendable Harness infrastructure. Their data and Helena-managed services remain isolated from the new AtlasBot pilot.
 
-**LAB strategy and decision:** [ADR-0003](docs/adr/0003-lab-consolidation-aws-gwd-rollout.md) · [VPS audit + AWS decision issue](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/9).\n\n**Phase 01 tracking:** [Team acknowledgment](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/1) · [AWS and credits](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/2) · [First end-to-end pilot](https://github.com/sergiomonteiro-atlas/Atlas-Harness/issues/3).\n\n**Operational clarification (12 Nov 2026):** The existing AtlasHub VPS is classified by the project owner as a non-production laboratory and may be reorganized after inventory and backups. Public briefing documents have **not yet been distributed to team members**; the team is not considered notified.\n\n## Platform map
+## Architecture in one view
 
-| Atlas project | Responsibility | Origin |
+```mermaid
+flowchart TD
+    H[Human owner / authorized directors] --> D[AtlasBot Desktop / Web client]
+    D --> C[Atlas governance and policy adapter]
+    C --> E[Atlas-Agent / Hermes via ACP]
+    E --> W[Atlas-Workforce roles and skills]
+    E --> M[Atlas-Memory-Fabric / GBrain adapter]
+    K[Atlas-Operational-Knowledge / Markdown] --> M
+    C --> B[Approved business system APIs]
+    B --> X[ARO / CRM / ClubOS / GWD]
+    C --> A[Audit / evidence / cost policy]
+```
+
+**ACP = Agent Client Protocol.** An ACP connection runs an agent; it does not, by itself, implement tenant authorization, approval workflows, budgets, accounting or organization-wide audit. These remain Atlas integration requirements.
+
+### Data and control boundaries
+
+- One owner and authorization decision path for each company-wide mission and external side effect.
+- Explicit tenant, BU, role, allowed tool set and cost budget; no direct bypass via nested agents.
+- Executive memory, approved knowledge, agent working memory and transactional CRM/ARO data remain distinct.
+- GBrain indexes knowledge through a governed adapter; Obsidian edits versioned Markdown, not live production databases.
+- Production client data, agent identities, credentials and operational IPs do not belong in public GitHub issues.
+
+## Release channels
+
+| Channel | Audience | Current decision |
 | --- | --- | --- |
-| [Atlas-Bot](https://github.com/sergiomonteiro-atlas/Atlas-Bot) | Enterprise interface, identity, admission, policy and approvals | Fork: CopilotKit/OpenBot |
-| [Atlas-Agent](https://github.com/sergiomonteiro-atlas/Atlas-Agent) | Restricted execution runtime; tools, skills, subagents | Fork: NousResearch/hermes-agent |
-| [Atlas-Memory-Fabric](https://github.com/sergiomonteiro-atlas/Atlas-Memory-Fabric) | Governed memory access and knowledge graph | Fork: garrytan/gbrain |
-| [Atlas-Operational-Knowledge](https://github.com/sergiomonteiro-atlas/Atlas-Operational-Knowledge) | Controlled Markdown playbooks, FAQs and scripts | Atlas original; Obsidian-compatible |
-| [Atlas-Workforce](https://github.com/sergiomonteiro-atlas/Atlas-Workforce) | Canonical role, SOUL and skills catalog | Fork: msitarzewski/agency-agents |
-| [Atlas-WorkSwarms](https://github.com/sergiomonteiro-atlas/Atlas-WorkSwarms) | Experimental swarms and federation | Fork: ruvnet/ruflo |
-| [Atlas-Crm-OS](https://github.com/sergiomonteiro-atlas/Atlas-Crm-OS) | BU sales/CRM application, not core harness | Fork: melgarafael/DeskcommCRM |
+| Architecture / Preview | Public | V0.1 on `atlas-si.com`, early access |
+| Internal Lab | AtlasHub operators | One isolated VPS AtlasBot host + separate configured Hermes runtime; test required |
+| Community / Open Edition | Future developers | Only Atlas-authored code and third-party components that permit redistribution |
+| Enterprise / Cloud | Future customers | Pending commercial rights, security, tenancy, support, legal and billing review |
 
-**Labs / BU applications** such as AtlasClub, Academy, ARO, and future Desktop remain independently operated and integrate through versioned contracts.
+The `nightly-labs/openbot` source licence is **PolyForm Noncommercial 1.0.0** for current releases. Rehosting, renaming, copying, or running as a client service does not remove those obligations. No Atlas branded public installer or commercial edition is authorized merely by creation of the copy repository.
 
-## Design invariants
+## Documentation index
 
-- Exactly **one enterprise task owner** and one authorization decision path per external action. Agent-internal delegation may run within an approved scope; it cannot grant itself further permissions.
-- Each agent has a stable identity, department/BU, tool grants, budget, escalation path and audit trail.
-- Corporate/executive memory, operational knowledge, customer records and agent working memory are **separate domains** with enforced access control.
-- Markdown/Obsidian may be a *knowledge authoring surface*, never an uncontrolled transactional database.
-- No credentials, customer personal data, confidential HR records, infrastructure access details, or live billing details in public GitHub repositories.
-- Upstream MIT notices and provenance preserved. The OpenBot fork depends on separately licensed CopilotKit Intelligence; independence and production rights require explicit due diligence.
+- [Platform V0.1 launch and source-of-truth](docs/atlas-platform-v01-release-alignment.md)
+- [Reference architecture](docs/architecture.md)
+- [Repositories and provenance](docs/repository-map.md)
+- [Memory and operational knowledge](docs/memory-knowledge.md)
+- [Architecture decision records](docs/adr/0001-atlas-harness-architecture.md)
+- [AWS staging and Activate readiness](docs/aws-staging-credits.md)
+- [Publication and data security](docs/security-publication.md)
+- [Phase 01 acceptance gates](docs/phase-01-roadmap.md)
 
-## First milestone: governed read-only mission
+## Active work
 
-A department manager requests a bounded task from Atlas-Bot. Atlas policy admits it, Atlas-Agent executes with restricted tools, retrieves an approved operational document through a scoped Memory Fabric adapter and returns evidence, cost, events and an auditable result. **No messages to real customers, financial activity or production mutations** in this first pilot.
+- [Launch issue #14](https://github.com/AtlasHub-Si/Atlas-Harness/issues/14): V0.1 website, Desktop source import, VPS, AWS and communications.
+- [VPS consolidation #13](https://github.com/AtlasHub-Si/Atlas-Harness/issues/13): isolate AtlasBot from Helena, preserve four legacy agents and named standby projects.
+- [Website release PR #1](https://github.com/AtlasHub-Si/atlas-si-website/pull/1): V0.1 landing and installer gate.
 
-## Contribution and maturity
+## Governance and contributions
 
-Architecture changes require an ADR and a reviewed PR. Integration schemas are proposed in this initial phase; compatibility should not be assumed until exercised in end-to-end tests.
-
-Copyright and software licenses of upstream repositories remain with their respective owners. Project-specific licensing for this original blueprint requires a separate approved decision.
+All functional claims require linked test evidence. Changes to contracts and licensing require reviewed ADRs/PRs; preserve upstream LICENSE and NOTICE files and check each subdirectory/package separately. Do not insert actual secrets, customer data, payment values or private staff data into this repository. The Atlas Harness original reference material is not automatically under MIT merely because some of its dependencies are.
