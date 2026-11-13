@@ -1,6 +1,7 @@
 # Atlas Harness — Architecture for the AI-Native Enterprise
 
 **AtlasHub.SI · Intelligence for the Augmented Enterprise**  
+**Legal:** [Atlas Global Tech Ltd / ATLASHUB DIGITAL LTD](LEGAL.md) · **Provenance:** [SergioMonteiro-Atlas](https://github.com/sergiomonteiro-atlas) · **License:** [original Atlas materials](LICENSE)  
 **Version:** V0.1 · Public architectural preview · 13 November 2026  
 **Website:** https://www.atlas-si.com · **Platform status:** integration in progress, **not** a publicly released commercial agent runtime.
 
