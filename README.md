@@ -13,16 +13,17 @@ The Atlas Harness is the governed architecture that links a multiagent workspace
 
 | Repository | Responsibility | Upstream / licensing caution | Delivery status |
 | --- | --- | --- | --- |
-| [Atlas-Harness](https://github.com/AtlasHub-Si/Atlas-Harness) | Original reference architecture, governance, orchestration contracts | Atlas original; own licensing decision pending | V0.1 public docs |
-| [Atlas-Bot-Desktop](https://github.com/AtlasHub-Si/Atlas-Bot-Desktop) | Desktop / remote multiagent interface **candidate** | Independent Git copy of `nightly-labs/openbot` planned; PolyForm Noncommercial constraints remain | Import in progress; no public Atlas installer |
-| [Atlas-Bot](https://github.com/AtlasHub-Si/Atlas-Bot) | Alternative enterprise control plane R&D | Fork of unrelated `CopilotKit/OpenBot`; separate software and licences | Research; not the canonical Desktop |
+| [Atlas-Harness](https://github.com/AtlasHub-Si/Atlas-Harness) | Original reference architecture, governance, orchestration contracts | Atlas-original rights reserved for owned contributions; see LICENSE | V0.1 public docs |
+| [Atlas-Bot-Desktop](https://github.com/AtlasHub-Si/Atlas-Bot-Desktop) | Desktop / remote multiagent interface **candidate** | GitHub fork via `sergiomonteiro-atlas/Atlas-Bot-Desktop` → `nightly-labs/openbot`; PolyForm Noncommercial | Source imported, internal integration; no approved public installer |
 | [Atlas-Agent](https://github.com/AtlasHub-Si/Atlas-Agent) | Hermes agent runtime, tools and skills; ACP integration | Fork of `NousResearch/hermes-agent`; preserve upstream notices | Local/VPS technical integration |
 | [Atlas-Memory-Fabric](https://github.com/AtlasHub-Si/Atlas-Memory-Fabric) | Governed memory, retrieval and provenance | Fork of GBrain; adapter authorization needed | Research |
 | [Atlas-Operational-Knowledge](https://github.com/AtlasHub-Si/Atlas-Operational-Knowledge) | Versioned Markdown playbooks and approvals; Obsidian-compatible authoring | Atlas original | Architecture |
 | [Atlas-Workforce](https://github.com/AtlasHub-Si/Atlas-Workforce) | Roles, SOULs, templates and skills catalog | Fork of `msitarzewski/agency-agents` | Catalog / integration |
 | [Atlas-WorkSwarms](https://github.com/AtlasHub-Si/Atlas-WorkSwarms) | Experimental federation and swarm orchestration | Fork of `ruvnet/ruflo` | Research only |
 | [Atlas-Crm-OS](https://github.com/AtlasHub-Si/Atlas-Crm-OS) | Business-unit CRM candidate derived from DeskcommCRM | Fork of `melgarafael/DeskcommCRM` | Separate BU application |
-| [atlas-si-website](https://github.com/AtlasHub-Si/atlas-si-website) | Atlas SI public landing, communications and release links | Website asset provenance under review | V0.1 public early-access site |
+| [AtlasHub.Si](https://github.com/AtlasHub-Si/AtlasHub.Si) | Corporate/Genesis institutional docs | Atlas original, reserved rights | Docs published |
+| [Projeto-Genesis](https://github.com/AtlasHub-Si/Projeto-Genesis) | AtlasHub × GWD Genesis project | Atlas original, reserved rights | Proposal |
+| [atlas-si-website](https://github.com/AtlasHub-Si/atlas-si-website) | Public website owned by Z.AI / GLM 5.3 | Separate web content and provenance review | GPT changes reverted in PR #3 |
 
 The existing GWD Cockpit, LearnHouse/ClubOS, ARO, Deskcom-derived CRM and webplayer are **standby or operational applications**, not expendable Harness infrastructure. Their data and Helena-managed services remain isolated from the new AtlasBot pilot.
 
@@ -55,7 +56,7 @@ flowchart TD
 
 | Channel | Audience | Current decision |
 | --- | --- | --- |
-| Architecture / Preview | Public | V0.1 on `atlas-si.com`, early access |
+| Architecture / Preview | Public | V0.1 documentation; atlas-si.com owned by Z.AI / GLM 5.3 |
 | Internal Lab | AtlasHub operators | One isolated VPS AtlasBot host + separate configured Hermes runtime; test required |
 | Community / Open Edition | Future developers | Only Atlas-authored code and third-party components that permit redistribution |
 | Enterprise / Cloud | Future customers | Pending commercial rights, security, tenancy, support, legal and billing review |
@@ -63,6 +64,9 @@ flowchart TD
 The `nightly-labs/openbot` source licence is **PolyForm Noncommercial 1.0.0** for current releases. Rehosting, renaming, copying, or running as a client service does not remove those obligations. No Atlas branded public installer or commercial edition is authorized merely by creation of the copy repository.
 
 ## Documentation index
+
+- [Repo profiles and settings manifest](docs/repository-profile-manifest.md)
+- [Corporate legal references](LEGAL.md)
 
 - [Platform V0.1 launch and source-of-truth](docs/atlas-platform-v01-release-alignment.md)
 - [Reference architecture](docs/architecture.md)
@@ -77,7 +81,7 @@ The `nightly-labs/openbot` source licence is **PolyForm Noncommercial 1.0.0** fo
 
 - [Launch issue #14](https://github.com/AtlasHub-Si/Atlas-Harness/issues/14): V0.1 website, Desktop source import, VPS, AWS and communications.
 - [VPS consolidation #13](https://github.com/AtlasHub-Si/Atlas-Harness/issues/13): isolate AtlasBot from Helena, preserve four legacy agents and named standby projects.
-- [Website release PR #1](https://github.com/AtlasHub-Si/atlas-si-website/pull/1): V0.1 landing and installer gate.
+- [Website restoration PR #3](https://github.com/AtlasHub-Si/atlas-si-website/pull/3): restored Z.AI-controlled website.
 
 ## Governance and contributions
 

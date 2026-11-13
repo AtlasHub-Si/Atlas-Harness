@@ -4,16 +4,17 @@
 
 | Atlas repository | Upstream identity / original | Metadata / public status | Release decision |
 | --- | --- | --- | --- |
-| `Atlas-Harness` | Atlas-authored architecture | No top-level LICENSE observed | Publication of docs allowed by owner; decide licence for Atlas-original code separately |
-| `Atlas-Bot-Desktop` | planned independent copy via `sergiomonteiro-atlas/Atlas-Bot-Desktop` of `nightly-labs/openbot` | **Empty as at 13 November 2026**, publicly visible; upstream **PolyForm Noncommercial 1.0.0** | **NO commercial or Atlas public installer until appropriate rights**; new Git repo does not alter rights |
-| `Atlas-Bot` | fork `CopilotKit/OpenBot` (unrelated to nightly-labs) | Repo metadata MIT, verify Intelligence/service-specific terms | Research only; separate rights assessment |
+| `Atlas-Harness` | Atlas-authored architecture | Original-materials LICENSE added | Rights reserved only in owned Atlas contributions |
+| `Atlas-Bot-Desktop` | fork via `sergiomonteiro-atlas/Atlas-Bot-Desktop` of `nightly-labs/openbot` | **Imported public source fork**, upstream **PolyForm Noncommercial 1.0.0** | **NO commercial or Atlas public installer until appropriate rights**; new Git repo does not alter rights |
 | `Atlas-Agent` | fork `NousResearch/hermes-agent` | Repo metadata MIT | Preserve notices; verify bundled dependencies |
 | `Atlas-Memory-Fabric` | fork `garrytan/gbrain` | Repo metadata MIT | Audit integrated packages and tenant security |
-| `Atlas-Operational-Knowledge` | Atlas-authored | No top-level LICENSE observed | Separate open-release decision |
+| `Atlas-Operational-Knowledge` | Atlas-authored | Original-materials LICENSE added | Separate open-release decision |
 | `Atlas-Workforce` | fork `msitarzewski/agency-agents` | Repo metadata MIT | Preserve original author attribution |
 | `Atlas-WorkSwarms` | fork `ruvnet/ruflo` | Repo metadata MIT | Lab only; check subprojects/transitives |
 | `Atlas-Crm-OS` | fork `melgarafael/DeskcommCRM` | Repo metadata MIT | BU product; dependency and data privacy review |
-| `atlas-si-website` | Atlas website with inherited OpenBot reference site material under evaluation | No top-level LICENSE observed | V0.1 homepage has new original design; unused legacy source/media still require provenance cleanup |
+| `AtlasHub.Si` | Atlas original institutional docs | Original-materials LICENSE added | Rights reserved as applicable |
+| `Projeto-Genesis` | Atlas-original Genesis documents | Original-materials LICENSE added | Rights reserved as applicable |
+| `atlas-si-website` | Website owned by Z.AI / GLM 5.3 | Independent web workstream | GPT changes reversed via PR #3 |
 
 ## Release preflight
 
@@ -35,3 +36,7 @@
 - **Commercial edition:** appropriate upstream commercial rights or independent code.
 
 Relevant origin: [nightly-labs/openbot](https://github.com/nightly-labs/openbot), [OpenBot commercial licensing](https://openbot.run/commercial-license), [CopilotKit/OpenBot](https://github.com/CopilotKit/OpenBot).
+
+## Atlas legal references
+
+Atlas Global Tech Ltd (UK 17401190); ATLASHUB DIGITAL LTD (UK 17379237). Legal: legal@Atlas-SI.com; support: support@AtlasHub.SI. Atlas curator: https://github.com/sergiomonteiro-atlas. The companies' listing does not transfer upstream copyright.
