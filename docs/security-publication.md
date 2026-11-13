@@ -26,7 +26,7 @@ Atlas-Harness is intended as a public architecture and engineering project. **Pu
 - No unrestricted sudo/root, SSH, Docker-socket, production GitHub branch writes, payments, publication or customer contact by unapproved agents.
 - Human approval must be authenticated and linked to a specific operation and parameters, with expiration and tamper-evident audit trail.
 - Record deletion/retention and compliance planning before ingesting real customer or employee data.
-- OpenBot CopilotKit Intelligence has separately licensed production requirements; validate prior to hosted use.
+- The two OpenBot projects must not be confused: Electron-based `nightly-labs/openbot` is currently PolyForm Noncommercial and commercial use needs explicit rights; `CopilotKit/OpenBot` is a separate research codebase with separate component licensing. Neither is approved for client hosting merely because its source is accessible.
 
 ## Public communication vs notification
 
