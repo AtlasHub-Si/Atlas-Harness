@@ -1,0 +1,35 @@
+# AtlasHub.SI | AtlasBot Remote POC (technical evaluation only)
+# Based on the upstream OpenBot Docker deployment shape.
+# This image is the original nightly-labs build — NOT an Atlas-built/relicensed binary.
+name: atlasbot-pilot
+services:
+  atlasbot:
+    image: ${ATLASBOT_IMAGE:?Set a pinned OpenBot image tag or digest in .env}
+    restart: unless-stopped
+    cpus: ${ATLASBOT_CPUS:-2.0}
+    mem_limit: ${ATLASBOT_MEM_LIMIT:-4g}
+    shm_size: 1g
+    stop_grace_period: 60s
+    security_opt:
+      - seccomp=./seccomp.json
+      - no-new-privileges:true
+    volumes:
+      - atlasbot-pilot-data:/data
+    networks:
+      - atlasbot-pilot-egress
+    # No ports: the remote host connects outbound to Account API/Signal/TURN.
+    # No docker.sock, no host network, no shared directories or Helena secrets.
+    labels:
+      com.atlashub.si.project: atlasbot-pilot
+      com.atlashub.si.owner: atlas-bot
+      com.atlashub.si.role: technical-evaluation
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+networks:
+  atlasbot-pilot-egress:
+    driver: bridge
+volumes:
+  atlasbot-pilot-data:
