@@ -78,7 +78,7 @@ Backend portability interfaces: `IdentityStore`, `EmailSender` (Resend P0 / SES 
 - **Atlas architecture:** Harness contracts, staging ownership, Resend/Cloudflare infrastructure, verification and test evidence.
 - **Helena:** existing VPS resources, `openbot.service` and four legacy agents; no redeployment or cleanup from this work.
 - **Z.AI:** website/landing only. No website change from this work.
-- **Brand:** `AtlasHub-Si/atlas-brand-system` is **private**; frozen reference in `BRAND_LOCK.json`, development-only assets V0.7 approval. Exact enterprise name Atlas-Hardness vs Atlas-Harness remains a **naming decision**, not an automated find/replace. Do not publish source brand assets into a public Desktop repo before provenance and release approval.
+- **Brand:** `AtlasHub-Si/atlas-brand-system` is **private**; frozen reference in `BRAND_LOCK.json`, development-only assets V0.7 approval. **Naming resolved on 2026-11-14:** the canonical enterprise name is **Atlas Harness**, with technical slug **`Atlas-Harness`**. `Atlas-Hardness` is an error on the frozen visual reference, not another product. See [the formal brand naming decision](https://github.com/AtlasHub-Si/atlas-brand-system/blob/main/docs/NAMING_DECISION_2026-11-14.md); do not rewrite frozen visual assets. Do not publish source brand assets into a public Desktop repo before provenance and release approval.
 
 ## 6. Immediate acceptance gate
 
