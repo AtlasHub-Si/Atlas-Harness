@@ -1,5 +1,7 @@
 # Atlas Harness — Architecture for the AI-Native Enterprise
 
+> **Nome canónico confirmado · 14-11-2026:** **Atlas Harness** (repositório técnico `Atlas-Harness`). O rótulo `Atlas-Hardness` da antiga maquete visual é uma gralha histórica, não uma marca alternativa. [Registo de decisão no Brand System](https://github.com/AtlasHub-Si/atlas-brand-system/blob/main/docs/NAMING_DECISION_2026-11-14.md). A imagem congelada mantém-se intacta.
+
 **AtlasHub.SI · Intelligence for the Augmented Enterprise**  
 **Legal:** [Atlas Global Tech Ltd / ATLASHUB DIGITAL LTD](LEGAL.md) · **Provenance:** [SergioMonteiro-Atlas](https://github.com/sergiomonteiro-atlas) · **License:** [original Atlas materials](LICENSE)  
 **Version:** V0.1 · Public architectural preview · 13 November 2026  
